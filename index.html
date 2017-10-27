@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Building a gateway between classrooms and data science using QUBESHub</title>
+    <meta charset="utf-8">
+    <meta name="author" content="M. Drew LaMar and Sam Donovan" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/leaflet/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet/leaflet.js"></script>
+    <link href="libs/leafletfix/leafletfix.css" rel="stylesheet" />
+    <link href="libs/leaflet-label/leaflet.label.css" rel="stylesheet" />
+    <script src="libs/leaflet-label/leaflet.label.js"></script>
+    <script src="libs/Proj4Leaflet/proj4-compressed.js"></script>
+    <script src="libs/Proj4Leaflet/proj4leaflet.js"></script>
+    <script src="libs/leaflet-binding/leaflet.js"></script>
+    <link href="libs/leaflet-easybutton/easy-button.css" rel="stylesheet" />
+    <script src="libs/leaflet-easybutton/easy-button.js"></script>
+    <script src="libs/leaflet-easybutton/EasyButton-binding.js"></script>
+    <link href="libs/leaflet-locationfilter2/locationfilter.css" rel="stylesheet" />
+    <script src="libs/leaflet-locationfilter2/locationfilter.js"></script>
+    <script src="libs/leaflet-locationfilter2/locationfilter-bindings.js"></script>
+    <link href="libs/ionicons/ionicons.min.css" rel="stylesheet" />
+    <link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+    <script src="libs/crosstalk/js/crosstalk.min.js"></script>
+    <script src="libs/d3/d3.min.js"></script>
+    <link href="libs/d3scatter/d3scatter.css" rel="stylesheet" />
+    <script src="libs/d3scatter/d3scatter.js"></script>
+    <script src="libs/d3scatter-binding/d3scatter.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="www/css/default.css" type="text/css" />
+  </head>
+  <body>
+    <script>
+    $(document).ready(function() {
+      $('.title-slide').append('<a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>');
+    });
+    </script>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Building a gateway between classrooms and data science using QUBESHub
+## 12th Gateway Computing Environments Conference
+### M. Drew LaMar and Sam Donovan
+### 2017/10/25
+
+---
+
+
+name: qubes
+layout: true
+
+.thumbnail-top-right[![](www/img/qubes_logo_web_200x200_transp.png)]
+
+&lt;!--
+Used for QUBES logo.  Layout true for this slide then false for the next is necessary to be able to use this as a template in the future, but have it not show.
+--&gt;
+
+---
+
+layout: false
+
+# Gateway challenges
+
+### Core challenges
+* **Audience (_faculty and students_)**:  Gateway must address two different audiences.
+--
+
+* **Context (_research and education_)**:  Faculty themselves have very different needs.
+--
+
+* **Content (_faculty training_)**:  Faculty need training not only in computational tools and quantitative/statistical concepts (which are underdeveloped in undergraduate curricula), but also in the pedagogical strategies in bringing these to the classroom.
+--
+
+
+### Cultural challenges
+--
+
+* **Isolation**:  Difficult for faculty to share teaching materials and strategies, due to fear of public scrutiny.
+--
+
+* **Recognition**:  Recognition of teaching scholarship in hiring, promotion and tenure is underdeveloped and widely variable.
+--
+
+* **Adoption**:  Adopting existing teaching materials from repositories is challenging as modifications are almost always necessary.
+
+---
+
+# Educational Gateway
+## .subheader[QUBES: Quantitative Undergraduate Biology Education and Synthesis]
+
+&lt;br \&gt;
+![](www/img/qubes_logo_web_200x60.png)
+
+&lt;blockquote&gt;
+QUBES is a community of math and biology educators who share resources and methods for preparing students to use quantitative approaches to tackle real, complex, biological problems.
+&lt;/blockquote&gt;
+
+---
+
+# QUBES: Quantitative Undergraduate Biology Education and Synthesis
+
+.center[
+&lt;img src="www/img/QUBESDiagram.gif" width="500px"&gt;
+]
+
+.footnote[
+&lt;img src="www/img/qubes_logo_web_200x60.png"&gt;&lt;br \&gt;
+]
+
+.right[
+https://qubeshub.org
+]
+
+???
+
+What is QUBES?
+
+---
+
+# Data Science challenges (in Biology)
+
+ * **Faculty training**: Biology faculty are not domain experts in statistics and data analysis
+--
+
+ * **Messy data**: Many opportunities in using real data, but *real data is messy*
+--
+
+ * **Complex software**: Many opportunities in using research tools, but *software is complex*
+--
+
+ * **Accessibility**:
+   * Lack of user-friendly *open-source* software
+--
+
+   * Computers in labs might require substantial setup prior to use of software
+--
+
+   * Student laptops are highly variable in computational ability, setup and maintenance
+--
+
+ * **Cognitive overload**: Biology students need to learn biology, math, physics, chemistry, statistics, experimental design, data skills, etc.
+--
+
+   * **Scripting/Programming**: Reproducibility is becoming more important in science.
+
+---
+
+background-image: url(www/img/thecarpentries.jpg)
+background-size: contain
+
+# Faculty Training Solutions
+## .subheader[
+The Carpentries
+]
+
+.credit[Image credit: http://cgrb.oregonstate.edu/service-spotlight/software-carpentry]
+
+---
+
+# Faculty Training Solutions
+## .subheader[
+QUBES Faculty Mentoring Networks
+]
+
+.pull-left[
+### Faculty Mentoring Networks are:
+* Online groups, typically 10-15 faculty members
+* Focused on a specific topic or material
+* Typically meet every two weeks over a period of several months
+* Led by teams of expert content and pedagogy mentors
+]
+
+--
+
+.pull-right[
+&lt;img src="www/img/FMN.png" width="350px"&gt;
+]
+
+---
+
+# Accessibility Solutions
+## .subheader[
+Software "in the cloud"
+]
+
+&lt;br \&gt;
+.center[
+&lt;img src="www/img/cloudcomputing.jpg" height=400px&gt;
+]
+
+.credit[Image credit: http://insights.speakwithageek.com/post/Top-Benefits-of-Cloud-Computing-in-Education]
+
+---
+
+# Accessibility Solutions
+
+## .subheader[
+Jupyter and R Notebooks
+]
+
+&lt;br \&gt;
+&lt;br \&gt;
+.center[
+&lt;img src="www/img/jupyter_logo.png" height=225px&gt;
+&lt;img src="www/img/nbWorkings.png" height=225px&gt;
+]
+
+.footnote[
+[http://jupyter.org/](http://jupyter.org/)&lt;br \&gt;
+[Why I love R Notebooks](https://www.r-bloggers.com/why-i-love-r-notebooks-2/)
+]
+
+---
+class: center, middle, inverse
+
+# The Bridge
+
+### How can we get student’s manipulating and analyzing data as fast as possible (i.e. *doing science*), while at the same time creating a scaffold to scripting skills?
+
+---
+class: center, middle, inverse
+
+# The Bridge
+
+### How can we focus students' attention on meaningful disciplinary work while reducing the technical overhead to do that work?
+
+---
+
+
+
+background-image: url(www/img/e778_firefly_serenity_cutaway_poster_set_2.jpg)
+background-size: contain
+
+.credit[Image credit: http://www.thinkgeek.com/images/products/additional/large/e778_firefly_serenity_cutaway_poster_set_2.jpg]
+---
+
+class: center, middle
+
+# Serenity: Data Science in the Classroom
+
+&lt;img src="www/img/SerenityBridge.svg" width="400px"&gt;
+
+---
+
+name: serenity
+
+# Serenity
+## .subheader[
+Data science in the classroom
+]
+
+.thumbnail-top-right[![](www/img/SerenityR.png)]
+
+.center[
+.middle[
+{{content}}
+]
+]
+
+---
+
+template: serenity
+
+### 1. Highly-accessible as a free, open-source web application
+
+&lt;br \&gt;
+&lt;img src="www/img/SerenityGithub.png" width="600px"&gt;
+
+### https://github.com/serenity-r
+
+---
+
+template: serenity
+
+### 2. Design keeps the focus on the data and the data life cycle
+
+&lt;br \&gt;
+&lt;img src="www/img/data-science.png" height="200px"&gt;
+&lt;br \&gt;
+
+--
+
+### .center[NJASP: Not Just Another Statistics Package]
+
+.credit[Image from [R for Data Science](http://r4ds.had.co.nz/), by Garrett Grolemund and Hadley Wickham]
+
+---
+
+template: serenity
+
+### 3. Streamlined communication and reporting with R Markdown
+
+&lt;br \&gt;
+&lt;img src="www/img/RMarkdownOutputFormats.png" height="300px"&gt;
+
+&lt;div class="credit"&gt;
+Image credit: &lt;a href="http://rmarkdown.rstudio.com/authoring_quick_tour.html#output_formats"&gt;http://rmarkdown.rstudio.com/authoring_quick_tour.html#output_formats&lt;/a&gt;
+&lt;/div&gt;
+
+---
+
+template: serenity
+
+### 4. Reports will include workflows that can be reproduced or repurposed
+
+&lt;br \&gt;
+&lt;img src="www/img/hello-shiny.png" height="200px"&gt;
+`\(\longrightarrow\)`
+&lt;img src="www/img/hasklig.png" height="200px"&gt;
+&lt;br \&gt;
+
+--
+
+### .center[GUI -&gt; Code]
+
+.credit[Image credit (left): http://rstudio.github.io/shiny/tutorial/#hello-shiny&lt;br \&gt;Image credit (right): https://benjaminlmoore.wordpress.com/]
+---
+
+template: serenity
+
+### 5. Workflows will follow best practices in data science
+
+&lt;br \&gt;
+&lt;img src="www/img/TeachTheTidyverse.png" height="300px"&gt;
+
+&lt;div class="credit"&gt;
+&lt;a href="http://varianceexplained.org/r/teach-tidyverse/"&gt;Teach the tidyverse to beginners&lt;/a&gt;, by David Robinson
+&lt;/div&gt;
+---
+
+template: serenity
+
+### 5. Workflows will follow best practices in data science
+
+&lt;br \&gt;
+&lt;img src="www/img/rstudio-hexed.jpeg" height="300px"&gt;
+
+&lt;div class="credit"&gt;
+Image credit: &lt;a href="https://www.rstudio.com/about/gear/"&gt;https://www.rstudio.com/about/gear/&lt;/a&gt;
+&lt;/div&gt;
+
+---
+
+template: serenity
+
+### 5. Workflows will follow best practices in data science
+
+&lt;br \&gt;
+&lt;img src="www/img/tidyverse1.png" height="300px"&gt;
+
+&lt;div class="credit"&gt;
+Image credit: &lt;a href="https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/"&gt;https://rviews.rstudio.com/2017/06/08/what-is-the-tidyverse/&lt;/a&gt;
+&lt;/div&gt;
+
+---
+template: serenity
+
+### 6. Simultaneous exploration of multiple representations of data
+
+&lt;br \&gt;
+<div class="container-fluid crosstalk-bscols">
+<div class="fluid-row">
+<div class="col-xs-6">
+<div id="htmlwidget-d7fba3cc7e71cebebe57" style="width:100%;height:300px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d7fba3cc7e71cebebe57">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addSelect","args":["SharedData579ae05c"]},{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"maxNativeZoom":null,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"continuousWorld":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":null,"unloadInvisibleTiles":null,"updateWhenIdle":null,"detectRetina":false,"reuseTiles":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[-19.15,-21.29,-21.78,-22,-19.5,-18.31,-21.23,-11.37,-27.71,-16.09,-34.1,-24.33,-20.21,-16.24,-21.71,-12.66,-19.13,-18.18,-16.51,-21.07,-15.9,-21.3,-16.3,-18.96,-22.5,-20.43,-17.02,-22.3,-17.9,-17.64,-15.39,-18.94,-23.9,-26.72,-11.49,-19.1,-19.22,-23.61,-23.58,-20.69,-16,-10.98,-19.66,-18.48,-32.14,-22.19,-20.62,-19.18,-20.63,-19.51,-13.79,-18.8,-21.91,-15.83,-15.41,-20.32,-30.01,-15.56,-23.47,-18.69,-15.7,-17.95,-23.73,-15.5,-26,-17.6,-18.5,-17.7,-22.58,-20.84,-12.57,-17.99,-25.06,-13.34,-30.17,-14.3,-22.09,-16.17,-27.6,-23.55,-18.56,-17.8,-12.08,-21.06,-10.8,-11.7,-17.14,-20.9,-21.97,-33.09,-17.95,-17.66,-19.73,-21.16,-19.67,-29.5,-19.13,-23.53,-29.09,-19.92],[169.5,180.85,183.11,185.5,186.9,182.39,181.09,166.55,182.47,184.89,181.8,179.97,183.83,185.75,183.58,169.46,184.97,180.63,187.1,183.78,167.16,180.92,186,169.48,170.4,182.37,182.41,181.9,181.5,177.01,185.1,182.43,179.9,182.69,166.22,169.63,182.43,180.23,180.17,181.55,182.82,166.32,184.31,182.37,180,171.4,181.03,169.33,181.61,183.97,166.56,182.41,181.28,167.1,186.44,180.88,181.15,167.62,180.21,169.1,185.1,181.5,183,185.3,178.43,181.5,185.4,185,179.24,181.16,167.11,181.57,182.8,166.2,182.02,167.32,180.38,184.1,182.1,180.8,169.31,181.35,165.76,183.81,165.8,166.1,185.31,182.02,182.32,180.94,181.73,181.4,182.4,182.4,182.18,182.31,182.51,179.99,183.2,183.91],null,null,null,{"clickable":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,null,{"ctKey":["250","270","830","607","519","220","641","769","346","257","419","838","219","228","960","141","806","460","501","894","581","634","35","120","254","367","573","187","780","702","817","876","696","885","64","866","124","409","149","61","233","22","86","630","901","357","2","258","741","637","852","692","878","813","90","256","859","152","932","686","832","406","814","828","792","690","856","284","31","21","891","561","919","292","354","699","272","212","658","34","192","59","509","503","779","7","495","809","206","903","940","39","96","62","201","324","280","459","478","566"],"ctGroup":"SharedData579ae05c"}]}],"limits":{"lat":[-34.1,-10.8],"lng":[165.76,187.1]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div class="col-xs-6">
+<div id="htmlwidget-d20337d81a9283c55419" style="width:100%;height:300px;" class="d3scatter html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d20337d81a9283c55419">{"x":{"data":{"x":[150,607,225,52,58,342,613,188,103,304,246,510,242,154,234,658,210,639,62,180,41,617,48,248,106,502,420,309,589,545,237,566,579,162,84,266,571,475,462,582,431,211,170,376,331,150,650,254,599,280,68,385,548,43,69,680,210,127,553,218,70,593,118,93,644,548,243,383,553,576,231,579,133,67,56,208,590,338,154,349,223,535,63,203,175,82,223,402,261,47,583,585,375,260,360,129,579,538,54,264],"y":[4.2,4.5,4.6,4.4,4.4,4.2,4.6,4.7,4.3,4.6,4.3,4.8,4.4,4.5,4.7,4.6,4.1,4.6,4.9,4.3,4.8,4.5,4.5,4.2,4.9,5.1,4.5,4.3,4,5.2,4.5,4.3,4.4,5.2,4.6,4.8,4.5,4.4,5.3,4.7,4.4,4.2,4.3,4.8,4.5,5.1,4.2,4.7,4.6,4,4.7,5.2,4.5,4.5,4.3,4.2,4.3,6.4,4.2,4.2,4.1,4.3,4.3,4.4,4.9,4.1,4,4,4.6,4.5,4.8,4.9,4,4.8,5.5,4.8,4.9,4.3,4.6,4,4.7,4.4,4.5,4.5,4.2,4.8,4.1,4.3,4.3,4.9,4.7,4.1,4,4.1,4.3,4.4,5.2,5.4,4.6,4.2],"key":["250","270","830","607","519","220","641","769","346","257","419","838","219","228","960","141","806","460","501","894","581","634","35","120","254","367","573","187","780","702","817","876","696","885","64","866","124","409","149","61","233","22","86","630","901","357","2","258","741","637","852","692","878","813","90","256","859","152","932","686","832","406","814","828","792","690","856","284","31","21","891","561","919","292","354","699","272","212","658","34","192","59","509","503","779","7","495","809","206","903","940","39","96","62","201","324","280","459","478","566"]},"color_spec":{"type":"constant","value":"#333333"},"color":null,"x_label":"depth","y_label":"mag","x_lim":null,"y_lim":null,"group":"SharedData579ae05c"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+
+&lt;div class="footnote"&gt;
+&lt;a href="https://rstudio.github.io/crosstalk/using.html"&gt;Crosstalk: Using Crosstalk&lt;/a&gt;
+&lt;/div&gt;
+
+---
+
+template: serenity
+
+### 7. Multiple formats for communication and dissemination
+
+&lt;br \&gt;
+&lt;img src="www/img/MultipleFormats.png" height="300px"&gt;
+
+&lt;div class="footnote"&gt;
+&lt;a href="http://rmarkdown.rstudio.com/flexdashboard/examples.html"&gt;flexdashboard for R: flexdashboard Examples&lt;/a&gt;
+&lt;/div&gt;
+
+---
+
+template: serenity
+
+### 8. Multiple modes of data import
+
+&lt;br \&gt;
+&lt;img src="www/img/dataimport-datacamp.jpg" height="300px"&gt;
+
+&lt;div class="credit"&gt;
+Image credit: &lt;a href="https://twitter.com/datacamp/status/846256025472847872"&gt;https://twitter.com/datacamp/status/846256025472847872&lt;/a&gt;
+&lt;/div&gt;
+
+---
+
+template: serenity
+
+### 8. Multiple modes of data import
+
+&lt;br \&gt;
+&lt;img src="www/img/re3data.jpg" height="400px"&gt;
+
+&lt;div class="credit"&gt;
+&lt;a href="https://www.re3data.org/"&gt;https://www.re3data.org/&lt;/a&gt;
+&lt;/div&gt;
+
+---
+
+template: serenity
+
+### 9. Integration with built-in learning management systems
+
+&lt;br \&gt;
+&lt;img src="www/img/LMS_MarketShare_20110511_mid.jpg" height="350px"&gt;
+
+&lt;div class="credit"&gt;
+Image credit: &lt;a href="http://mfeldstein.com/state-of-the-us-higher-education-lms-market-2015-edition/"&gt;http://mfeldstein.com/state-of-the-us-higher-education-lms-market-2015-edition/&lt;/a&gt;
+&lt;/div&gt;
+---
+
+template: serenity
+
+### 10. Link computational modeling with analysis of the resulting data
+
+&lt;br \&gt;
+&lt;img src="www/img/LaunchNetLogo.png" height="350px"&gt;
+
+### http://www.netlogoweb.org/launch
+---
+
+# Serenity
+## .subheader[
+Data science in the classroom
+]
+
+.thumbnail-top-right[![](www/img/SerenityR.png)]
+
+
+1. Highly-accessible as a free, open-source web application
+
+1. User-interface design keeps the focus on the data and the data life cycle
+
+1. Communication and reporting will be streamlined
+
+1. Reports of results will include workflows that can be reproduced or repurposed
+
+1. Workflows will follow best practices in data science
+
+1. Simultaneous exploration of multiple representations of data
+
+1. Multiple formats for communication and dissemination
+
+1. Multiple modes of data import
+
+1. Integration with built-in learning management systems
+
+1. Link computational modeling with analysis of the resulting data
+
+---
+
+class: center
+
+.thumbnail-top-left[![](www/img/qubes_logo_web_200x200_transp.png)]
+.thumbnail-top-right[![](www/img/SerenityR.png)]
+
+# Thank you!
+
+### QUBES Leadership Team
+Kristin Jenkins&lt;br \&gt;
+Carrie Diaz-Eaton&lt;br \&gt;
+Jeremy Wojdak&lt;br \&gt;
+Alison Hale&lt;br \&gt;
+Gaby Hamerlinck&lt;br \&gt;
+Arietta Fleming-Davies&lt;br \&gt;
+
+### Inspired by Radiant
+Vincent Nijs&lt;br \&gt;
+&lt;img src="www/img/sgci-new-logo-words-below-black.png" height="100px" style="float: left; margin-left: -50px; margin-top: -80px"&gt;
+&lt;img src="www/img/nsf-logo.jpg" height="100px" style="float: right; margin-right: -50px; margin-top: -80px"&gt;
+
+.left[
+&lt;div class="footnote" style="bottom:125px"&gt;
+Follow Serenity development at &lt;a href="https://github.com/serenity-r"&gt;https://github.com/serenity-r&lt;/a&gt;&lt;br \&gt;Slides created via the R package &lt;a href="https://github.com/yihui/xaringan"&gt;xaringan&lt;/a&gt;.
+&lt;/div&gt;
+&lt;div class="credit" style="right: 3em"&gt;
+This material is based upon work supported by the National Science Foundation under DBI 1346584, DUE 1446269, DUE 1446258, and DUE 1446284.  Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
+&lt;/div&gt;
+]
+    </textarea>
+<script src="libs/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {window.dispatchEvent(new Event('resize'));});
+(function() {var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler"); if (!r) return; s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }"; d.head.appendChild(s);})();</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+});
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
