@@ -1,0 +1,422 @@
+---
+title: "Gateway design features for undergraduate education communities: A case study"
+subtitle: "Gateways 2019"
+author: "M. Drew LaMar and Sam Donovan"
+date: "2019/09/24"
+output:
+  xaringan::moon_reader:
+    css: www/css/default.css
+    chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+# Gateway challenges
+
+### Core challenges
+* **Audience (_faculty and students_)**:  Gateway must address two different audiences.
+--
+
+* **Context (_research and education_)**:  Faculty themselves have very different needs.
+--
+
+* **Content (_faculty training_)**:  Faculty need training not only in computational tools and quantitative/statistical concepts (which are underdeveloped in undergraduate curricula), but also in the pedagogical strategies in bringing these to the classroom.
+--
+
+
+### Cultural challenges
+--
+
+* **Isolation**:  Difficult for faculty to share teaching materials and strategies, due to fear of public scrutiny.
+--
+
+* **Recognition**:  Recognition of teaching scholarship in hiring, promotion and tenure is underdeveloped and widely variable.
+--
+
+* **Adoption**:  Adopting existing teaching materials from repositories is challenging as modifications are almost always necessary.
+
+---
+
+# QUBES: An Education Gateway
+## .subheader[
+Quantitative Undergraduate Biology Education and Synthesis
+]
+<br \>
+.center[
+![](www/img/qubes_logo_web_200x60.png)
+]
+
+<!--
+<blockquote>
+QUBES is a community of math and biology educators who share resources and methods for preparing students to use quantitative approaches to tackle real, complex, biological problems.
+</blockquote>
+-->
+
+.center[
+## Supporting educators by advancing open and inclusive quantitative biology through the power of collective impact.
+]
+
+---
+
+# QUBES: Education Gateway Components
+
+.center[
+<br \>
+<img src="www/img/Slide1.png" height=400px>
+]
+
+???
+
+What is QUBES?
+
+---
+
+# QUBES: Education Gateway Components
+
+.center[
+<br \>
+<img src="www/img/Slide2.png" height=400px>
+]
+
+???
+
+* Collaborative Community Workspaces
+* Open Educational Resource Publishing Platform
+* Computational Tools in the Classroom
+* Professional Development
+
+---
+
+name: community
+
+# Community
+## .subheader[
+Collaborative Community Workspaces
+]
+
+.thumbnail-top-right[![](www/img/CommunityCircle_Small.png)]
+
+.center[
+.middle[
+{{content}}
+]
+] 
+
+---
+
+template: community
+
+# Education Projects
+
+<a href="https://qubeshub.org/community/groups/partnerprojectsupport" target="_blank"><img src="www/img/PartnerProjects.png" height="300px"></a>
+
+[Click here to explore education projects on QUBES](https://qubeshub.org/community/groups/partnerprojectsupport)
+
+---
+
+template: community
+
+# Education Wing of Research Organizations
+
+<a href="https://qubeshub.org/community/groups/neon" target="_blank"><img src="www/img/NEON.png"></a>
+
+[Click here to explore NEON on QUBES](https://qubeshub.org/community/groups/neon)
+
+---
+
+template: community
+
+# Workshop Websites
+
+<a href="https://qubeshub.org/groups/summer2019" target="_blank"><img src="www/img/sw19_logo.png" height="300px"></a>
+
+[Click here to visit the QUBES/BioQUEST Summer 2019 Workshop](https://qubeshub.org/community/groups/summer2019)
+
+---
+
+name: resources-oer
+
+# Resources
+## .subheader[
+Open Educational Resource Publishing Platform
+]
+
+.thumbnail-top-right[![](www/img/ResourcesCircle_Small.png)]
+
+.center[
+.middle[
+{{content}}
+]
+] 
+
+---
+
+template: resources-oer
+
+<img src="www/img/OER_life_cycle.png" height="450px">
+
+[Teaching Notes for Implementation of Gene Expression in Stem Cells](https://qubeshub.org/qubesresources/publications/331/1)
+---
+
+name: resources-software
+
+# Resources
+## .subheader[
+Computational Tools in the Cloud
+]
+
+.thumbnail-top-right[![](www/img/ResourcesCircle_Small.png)]
+
+.center[
+.middle[
+{{content}}
+]
+] 
+
+---
+
+# Resources
+## .subheader[
+Computational Tools in the Cloud
+]
+
+.thumbnail-top-right[![](www/img/ResourcesCircle_Small.png)]
+
+<br \>
+.center[
+<img src="www/img/cloudcomputing.jpg" height=400px>
+]
+
+.credit[Image credit: http://insights.speakwithageek.com/post/Top-Benefits-of-Cloud-Computing-in-Education]
+
+
+---
+
+# Resources
+## .subheader[
+Computational Tools in the Cloud
+]
+
+.thumbnail-top-right[![](www/img/ResourcesCircle_Small.png)]
+
+## .subheader[
+Jupyter and R Notebooks
+]
+
+<br \>
+<br \>
+.center[
+<img src="www/img/jupyter_logo.png" height=225px>
+<img src="www/img/nbWorkings.png" height=225px>
+]
+
+.footnote[
+[http://jupyter.org/](http://jupyter.org/)<br \>
+[Why I love R Notebooks](https://www.r-bloggers.com/why-i-love-r-notebooks-2/)
+]
+
+---
+
+template: resources-software
+
+<br \>
+### How can we get student’s manipulating and analyzing data as fast as possible (i.e. *doing science*), while at the same time creating a scaffold to scripting skills?
+
+--
+
+.center[
+### How can we focus students' attention on meaningful disciplinary work while reducing the technical overhead to do that work?
+]
+
+---
+
+# Resources
+## .subheader[
+Computational Tools in the Cloud
+]
+
+.thumbnail-top-right[![](www/img/ResourcesCircle_Small.png)]
+
+## .subheader[
+Serenity: Data Science in the Classroom
+]
+
+.center[
+<img src="www/img/serenity_final.svg" width="300px">
+]
+
+---
+
+# Resources
+## .subheader[
+Computational Tools in the Cloud
+]
+
+.thumbnail-top-right[![](www/img/ResourcesCircle_Small.png)]
+
+## .subheader[
+Serenity: Data Science in the Classroom
+]
+
+.center[
+<img src="www/img/SerenityBridge.svg" width="325px">
+]
+
+---
+
+# Service
+## .subheader[
+Professional Development
+]
+
+.thumbnail-top-right[![](www/img/PD_Small.png)]
+
+<br \>
+### [Faculty Mentoring Networks](https://qubeshub.org/community/fmns#new) are:
+* Online groups, typically 10-15 faculty members
+--
+
+* Focused on a specific topic or material
+--
+
+* Typically meet every two weeks over a period of several months
+--
+
+* Led by teams of expert content and pedagogy mentors
+
+---
+
+name: service-diss
+
+# Service
+## .subheader[
+Dissemination
+]
+
+.thumbnail-top-right[![](www/img/Dissemination_Small.png)]
+
+.center[
+.middle[
+{{content}}
+]
+] 
+
+---
+
+template: service-diss
+
+<a href="https://qubeshub.org/news/newsletter/row" target="_blank"><img src="www/img/ROW.png"></a>
+
+[Visit the Resource of the Week page](https://qubeshub.org/news/newsletter/row)
+---
+
+template: service-diss
+
+<a href="https://qubeshub.org/news/newsletter" target="_blank"><img src="www/img/Newsletters.png"></a>
+
+[Browse QUBES newsletters](https://qubeshub.org/news/newsletter)
+---
+
+template: service-diss
+
+### Summer Workshops
+
+<div style="float:left;margin-left:100px;">
+<a href="https://qubeshub.org/groups/summer2019" target="_blank"><img src="www/img/sw19_logo.png" height="200px"></a><br \><br \>
+<a href="https://qubeshub.org/groups/summer2017" target="_blank"><img src="www/img/sw17_logo.png" height="200px"></a>
+</div>
+
+<div style="float:right;margin-right:100px;">
+<a href="https://qubeshub.org/groups/summer2018" target="_blank"><img src="www/img/sw18_logo.jpeg" height="200px"></a><br \><br \>
+<a href="https://qubeshub.org/groups/summer2016" target="_blank"><img src="www/img/sw16_logo.png" height="200px"></a>
+</div>
+
+---
+
+# Case 1: Teaching Issues and Experiments in Ecology (TIEE)
+## .subheader[
+Reinvigorating an online education repository
+]
+
+<img src="www/img/TIEE.png" height="350px">
+
+[Click here to browse ESA materials](https://qubeshub.org/community/groups/esa)
+
+---
+
+# Case 2: BIOMAAP
+## .subheader[
+Supporting an NSF funded education project
+]
+
+<br \>
+
+<a href="https://qubeshub.org/community/groups/biomaap" target="_blank"><img src="www/img/BIOMAAP_logo.png"></a>
+
+[Click here to browse BIOMAAP materials](https://qubeshub.org/community/groups/biomaap)
+
+.footnote[
+NSF DUE-IUSE: Biology undergraduate Mathematics Attitudes and Anxiety Program (BioMAAP)
+]
+---
+
+# Case 3: NIBLSE
+## .subheader[
+Incubating open educational resources
+]
+
+<a href="https://qubeshub.org/community/groups/niblse" target="_blank"><img src="www/img/NIBLSEGraphic.png"></a>
+
+[Click here to browse NIBLSE materials](https://qubeshub.org/community/groups/niblse)
+
+.footnote[
+NSF RCN-UBE: Network for Integrating Bioinformatics into Life Sciences Education (NIBLSE)
+]
+
+---
+
+class: center
+
+.thumbnail-top-left[![](www/img/qubes_logo_web_200x200_transp.png)]
+.thumbnail-top-right[![](www/img/qubes_logo_web_200x200_transp.png)]
+
+# Thank you!
+### QUBES Leadership Team
+.pull-left[
+Kristin Jenkins<br \>
+Carrie Diaz-Eaton<br \>
+Jeremy Wojdak<br \>
+Hayley Orndorf<br \>
+Deborah Rook<br \>
+Elia Crisucci<br \>
+Adam Fagen<br \>
+]
+
+.pull-right[
+Jenny Kwan<br \>
+Bharath Chandra Reddy Barakam<br \>
+Alison Hale<br \>
+Arietta Fleming-Davies<br \>
+Gabriela Hamerlinck<br \>
+Nicole Chodkowski<br \>
+Elizabeth Hamman
+]
+
+<br \> <br \> <br \> <br \>
+<div style="display:flex; flex-direction:row; justify-content:space-between; align-items:center;margin-top:-100px">
+<img src="www/img/sgci-new-logo-words-below-black.png" height="100px">
+<img src="www/img/hz-logo-hubzero-grey.png" height="50px">
+<img src="www/img/nsf-logo.jpg" height="100px">
+</div>
+
+.left[
+<div class="footnote" style="bottom:90px">
+Slides created via the R package <a href="https://github.com/yihui/xaringan">xaringan</a>.
+</div>
+<div class="credit" style="right: 3em">
+This material is based upon work supported by the National Science Foundation under DBI 1346584, DUE 1446269, DUE 1446258, and DUE 1446284.  Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.
+</div>
+]

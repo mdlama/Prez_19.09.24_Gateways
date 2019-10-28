@@ -78,7 +78,8 @@ a, a > code {
   max-height: 100px;
 }
 .subheader {
-  margin-top:-25px; 
+  margin-top:-50px; 
+  margin-bottom: -40px;
   color: #666666
 }
 img, video, iframe {
